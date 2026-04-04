@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, Calendar, BookOpen, Clock, UsersRound, Library, Megaphone, MessageSquare, Settings } from "lucide-react";
+import { LayoutDashboard, Users, Calendar, BookOpen, Clock, UsersRound, Library, Megaphone, MessageSquare, Settings, GraduationCap } from "lucide-react";
 
 export default function Sidebar() {
   const location = useLocation();
   const currentPath = location.pathname;
+  const [expanded, setExpanded] = useState(false);
 
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -19,37 +21,52 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 flex-shrink-0 bg-white border-r border-gray-100 hidden md:flex flex-col">
-      <div className="p-6 flex items-center space-x-3">
-        <div className="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white font-bold">
-          E
-        </div>
-        <h1 className="text-xl font-bold text-gray-800">Eduspot</h1>
+    <aside
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
+      className={`fixed left-0 top-0 h-screen ${expanded ? "w-56" : "w-16"} transition-all duration-300 ease-in-out overflow-hidden bg-white border-r border-gray-100 hidden md:flex flex-col z-50 shadow-sm`}
+    >
+      {/* Logo */}
+      <div className="flex items-center px-4 py-6 shrink-0 border-b border-gray-50 mb-2">
+        <GraduationCap className="text-orange-500 min-w-[24px] shrink-0" size={24} />
+        <span
+          className={`ml-3 font-bold text-xl text-gray-800 whitespace-nowrap transition-opacity duration-300 ${expanded ? "opacity-100" : "opacity-0"}`}
+        >
+          S-VYASA
+        </span>
       </div>
-      
-      <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+
+      {/* Navigation */}
+      <nav className="flex-1 px-3 py-2 overflow-y-auto overflow-x-hidden no-scrollbar space-y-1">
         {menuItems.map((item, idx) => {
           const isActive = currentPath.startsWith(item.path);
           return (
             <Link
               key={idx}
               to={item.path}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
-                isActive 
-                  ? "bg-orange-50 text-orange-600 font-medium" 
-                  : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              className={`flex items-center gap-3 px-3 py-3 rounded-2xl transition-colors duration-200 ${
+                isActive
+                  ? "bg-orange-50 text-orange-600 font-bold"
+                  : "text-gray-500 hover:bg-gray-50 hover:text-gray-900 font-medium"
               }`}
             >
-              <item.icon size={20} className={isActive ? "text-orange-600" : "text-gray-400"} />
-              <span>{item.label}</span>
+              <item.icon size={20} className={`min-w-[20px] shrink-0 ${isActive ? "text-orange-600" : "text-gray-400"}`} />
+              <span
+                className={`whitespace-nowrap transition-opacity duration-300 ${expanded ? "opacity-100" : "opacity-0"}`}
+              >
+                {item.label}
+              </span>
               {item.label === "Messages" && (
-                <span className="ml-auto bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">4</span>
+                <span
+                  className={`ml-auto bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 transition-opacity duration-300 ${expanded ? "opacity-100" : "opacity-0"}`}
+                >
+                  4
+                </span>
               )}
             </Link>
           );
         })}
       </nav>
-
     </aside>
   );
 }

@@ -8,7 +8,7 @@ export default function Layout() {
   const [isQuickPanelOpen, setIsQuickPanelOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[#F8F9FC] overflow-hidden font-sans">
+    <div className="flex h-screen bg-[#F8F9FC] overflow-hidden font-sans md:pl-16">
       <Sidebar />
       
       <div className="flex-1 flex flex-col overflow-hidden relative">
