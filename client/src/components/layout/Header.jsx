@@ -1,4 +1,5 @@
 import { Search, Bell, Settings, PanelRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header({ toggleQuickPanel }) {
   return (
@@ -55,7 +56,7 @@ export default function Header({ toggleQuickPanel }) {
         
         <div className="h-8 w-px bg-gray-200 hidden sm:block"></div>
 
-        <div className="flex items-center space-x-3 cursor-pointer group">
+        <Link to="/profile" className="flex items-center space-x-3 cursor-pointer group">
           <div className="text-right hidden sm:block">
             <p className="text-sm font-bold text-gray-900 leading-tight group-hover:text-orange-600 transition-colors">Professor John</p>
             <p className="text-xs text-gray-500">Computer Science</p>
@@ -65,7 +66,7 @@ export default function Header({ toggleQuickPanel }) {
             alt="Professor John" 
             className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
           />
-        </div>
+        </Link>
       </div>
     </header>
   );
