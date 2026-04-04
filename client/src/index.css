@@ -11,3 +11,46 @@
     display: none;
   }
 }
+
+/* react-day-picker theme overrides */
+.rdp-custom {
+  --rdp-accent-color: #f97316;
+  --rdp-accent-background-color: #fff7ed;
+}
+
+.rdp-custom .rdp-day:hover {
+  background-color: #fff7ed !important;
+  color: #ea580c !important;
+  border-radius: 12px;
+}
+
+.rdp-custom .rdp-selected .rdp-day_button {
+  background-color: #f97316 !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+.rdp-custom .rdp-today:not(.rdp-selected) .rdp-day_button {
+  color: #f97316;
+  font-weight: 700;
+}
+
+.rdp-custom .rdp-chevron {
+  fill: #f97316;
+}
+
+/* Smooth entrance animation for calendar dropdown */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideIn 0.2s ease-out;
+}

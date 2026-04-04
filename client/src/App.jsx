@@ -6,6 +6,9 @@ import ClassDashboard from "./modules/classes/pages/ClassDashboard";
 import Students from "./modules/classes/pages/Students";
 import Assignments from "./modules/classes/pages/Assignments";
 import Materials from "./modules/classes/pages/Materials";
+import Attendance from "./modules/classes/pages/Attendance";
+import Timetable from "./modules/timetable/pages/Timetable";
+import SettingsPage from "./modules/settings/pages/SettingsPage";
 // Global Attendance Pages
 import AttendanceDashboard from "./pages/attendance/AttendanceDashboard";
 import MarkAttendance from "./pages/attendance/MarkAttendance";
@@ -38,6 +41,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="timetable" element={<Timetable />} />
+          <Route path="settings" element={<SettingsPage />} />
           <Route path="classes">
             <Route index element={<MyClasses />} />
             <Route path=":classId" element={<ClassDashboard />} />
