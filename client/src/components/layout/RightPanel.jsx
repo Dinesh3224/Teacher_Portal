@@ -1,9 +1,9 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function RightPanel() {
+export default function RightPanel({ isOpen }) {
   return (
-    <aside className="w-80 bg-white border-l border-gray-100 hidden xl:flex flex-col overflow-y-auto">
-      <div className="p-6">
+    <aside className={`bg-white border-l border-gray-100 flex flex-col overflow-y-auto transition-all duration-300 ease-in-out ${isOpen ? 'w-80 opacity-100' : 'w-0 opacity-0 overflow-hidden border-l-0'}`}>
+      <div className="p-6 w-80">
         <h3 className="font-bold text-gray-800 mb-6 flex items-center justify-between">
           <span>September 17</span>
           <span className="text-gray-400 font-medium">Sunday</span>
