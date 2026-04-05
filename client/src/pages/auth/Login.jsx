@@ -44,10 +44,9 @@ export default function Login() {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-multiply pointer-events-none"></div>
       
       <div className="sm:mx-auto sm:w-full sm:max-w-md z-10 animate__animated animate__fadeInDown text-center">
-        <div className="inline-flex items-center justify-center p-3 bg-white rounded-2xl shadow-sm mb-6 border border-gray-100">
-           {/* Fallback to GraduationCap if logoImg doesn't load cleanly, but forcing img tag here */}
-           <img src={logoImg} alt="S-VYASA Logo" className="h-16 w-16 object-contain rounded-xl" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
-           <GraduationCap className="text-orange-500 hidden" size={48} />
+        <div className="inline-flex items-center justify-center mb-6">
+           <img src={logoImg} alt="S-VYASA Logo" className="h-28 w-auto object-contain mix-blend-multiply" onError={(e) => {e.target.style.display='none'; e.target.nextSibling.style.display='block'}} />
+           <GraduationCap className="text-orange-500 hidden" size={64} />
         </div>
         <h2 className="text-center text-3xl font-extrabold text-gray-900 tracking-tight">
           Teacher Portal

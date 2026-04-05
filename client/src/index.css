@@ -1,7 +1,78 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+/* ===== THEME TOKEN SYSTEM ===== */
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
+  --bg-input: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #f3f4f6;
+  --border-strong: #e5e7eb;
+  --sidebar-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme */
+.theme-dark {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #273548;
+  --bg-input: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #334155;
+  --border-strong: #475569;
+  --sidebar-bg: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Soft Orange Theme */
+.theme-orange {
+  --bg-main: #fffbf5;
+  --bg-card: #fff8f0;
+  --bg-card-hover: #fff0e0;
+  --bg-input: #fff7ed;
+  --text-primary: #78350f;
+  --text-secondary: #92400e;
+  --text-muted: #b45309;
+  --border-color: #fed7aa;
+  --border-strong: #fdba74;
+  --sidebar-bg: #fffbf5;
+  --shadow-color: rgba(234, 88, 12, 0.08);
+}
+
+/* Blue Academic Theme */
+.theme-blue {
+  --bg-main: #f0f9ff;
+  --bg-card: #f8fbff;
+  --bg-card-hover: #e9f4ff;
+  --bg-input: #e0f2fe;
+  --text-primary: #0c4a6e;
+  --text-secondary: #075985;
+  --text-muted: #0284c7;
+  --border-color: #bae6fd;
+  --border-strong: #7dd3fc;
+  --sidebar-bg: #f0f9ff;
+  --shadow-color: rgba(3, 105, 161, 0.08);
+}
+
+/* ===== UTILITY CLASSES USING TOKENS ===== */
+.bg-themed-main { background-color: var(--bg-main); }
+.bg-themed-card { background-color: var(--bg-card); }
+.bg-themed-input { background-color: var(--bg-input); }
+.text-themed-primary { color: var(--text-primary); }
+.text-themed-secondary { color: var(--text-secondary); }
+.text-themed-muted { color: var(--text-muted); }
+.border-themed { border-color: var(--border-color); }
+.border-themed-strong { border-color: var(--border-strong); }
+
+/* ===== SCROLLBAR & GLOBAL RESETS ===== */
 @layer base {
   * {
     scrollbar-width: none;
@@ -12,7 +83,38 @@
   }
 }
 
-/* react-day-picker theme overrides */
+/* ===== RECHARTS DARK MODE SUPPORT ===== */
+.theme-dark .recharts-cartesian-grid-horizontal line,
+.theme-dark .recharts-cartesian-grid-vertical line {
+  stroke: #334155;
+}
+.theme-dark .recharts-text {
+  fill: #94a3b8 !important;
+}
+.theme-dark .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+.theme-dark .recharts-tooltip-item {
+  color: #e2e8f0 !important;
+}
+.theme-dark .recharts-legend-item-text {
+  color: #94a3b8 !important;
+}
+
+/* Orange theme chart tweaks */
+.theme-orange .recharts-cartesian-grid-horizontal line,
+.theme-orange .recharts-cartesian-grid-vertical line {
+  stroke: #fed7aa;
+}
+
+/* Blue theme chart tweaks */
+.theme-blue .recharts-cartesian-grid-horizontal line,
+.theme-blue .recharts-cartesian-grid-vertical line {
+  stroke: #bae6fd;
+}
+
+/* ===== CALENDAR PICKER OVERRIDES ===== */
 .rdp-custom {
   --rdp-accent-color: #f97316;
   --rdp-accent-background-color: #fff7ed;
@@ -39,7 +141,7 @@
   fill: #f97316;
 }
 
-/* Smooth entrance animation for calendar dropdown */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
