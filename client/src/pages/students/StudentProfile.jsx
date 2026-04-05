@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { useStudents } from '../../context/StudentContext';
 import { ArrowLeft, User, BookOpen, Lock, ShieldAlert } from 'lucide-react';
-import StudentHeader from '../../components/students/StudentHeader';
-import MessageStudentModal from '../../components/students/MessageStudentModal';
+import StudentHeader from '../../modules/students/StudentHeader';
+import MessageStudentModal from '../../modules/students/MessageStudentModal';
 
 export default function StudentProfile() {
   const { id } = useParams();
