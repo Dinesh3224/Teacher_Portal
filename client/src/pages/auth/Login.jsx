@@ -14,16 +14,17 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError("Please fill in both fields.");
-      return;
-    }
 
     try {
       setIsLoading(true);
       setError("");
-      await login(email, password);
-      // On success, AuthProvider state updates, but we also push navigation
+      
+      // Override backend payload passing for offline demo mode
+      await login({
+         name: "Professor John",
+         department: "Computer Science"
+      });
+      
       navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(err.message || "Failed to log in.");
