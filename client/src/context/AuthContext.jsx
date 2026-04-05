@@ -23,28 +23,24 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }, []);
 
-  const login = async (email, password) => {
-    // Simulated API Call
-    return new Promise((resolve, reject) => {
+  const login = async (userData) => {
+    // Demo bypass: Accept any login and store mock session
+    return new Promise((resolve) => {
       setTimeout(() => {
-        if (email === "john@svyasa.edu.in" && password === "svyasa123") {
-          const authUser = {
-            id: "T-001",
-            name: "Professor John",
-            department: "Computer Science",
-            role: "teacher"
-          };
-          const authToken = "mock-jwt-token-12345";
-          
-          setUser(authUser);
-          localStorage.setItem("user", JSON.stringify(authUser));
-          localStorage.setItem("token", authToken);
-          
-          resolve(authUser);
-        } else {
-          reject(new Error("Invalid credentials. Use john@svyasa.edu.in / svyasa123"));
-        }
-      }, 1000); // Simulate network latency
+        const authUser = {
+          id: "T-001",
+          name: userData?.name || "Professor John",
+          department: userData?.department || "Computer Science",
+          role: "teacher"
+        };
+        const authToken = "demo-mock-jwt-token";
+        
+        setUser(authUser);
+        localStorage.setItem("user", JSON.stringify(authUser));
+        localStorage.setItem("token", authToken);
+        
+        resolve(authUser);
+      }, 300); // Slight delay for UI loader feel
     });
   };
 
