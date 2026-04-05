@@ -1,12 +1,12 @@
 import { useState } from "react";
-import ProfileHeader from "../components/profile/ProfileHeader";
-import PersonalInfo from "../components/profile/PersonalInfo";
-import ContactInfo from "../components/profile/ContactInfo";
-import ProfessionalInfo from "../components/profile/ProfessionalInfo";
-import Qualifications from "../components/profile/Qualifications";
-import TeachingInfo from "../components/profile/TeachingInfo";
-import Documents from "../components/profile/Documents";
-import AccountSettings from "../components/profile/AccountSettings";
+import ProfileHeader from "../modules/profile/ProfileHeader";
+import PersonalInfo from "../modules/profile/PersonalInfo";
+import ContactInfo from "../modules/profile/ContactInfo";
+import ProfessionalInfo from "../modules/profile/ProfessionalInfo";
+import Qualifications from "../modules/profile/Qualifications";
+import TeachingInfo from "../modules/profile/TeachingInfo";
+import Documents from "../modules/profile/Documents";
+import AccountSettings from "../modules/profile/AccountSettings";
 
 const initialMockData = {
   name: "Professor John",

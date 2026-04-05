@@ -42,4 +42,22 @@ export function getDayName(date) {
   return format(date, "EEEE");
 }
 
-
+/**
+ * Generate an array of weekday objects for a given week range.
+ * Each object contains { dayName, dateLabel, date }.
+ * Only Mon–Sat (6 working days).
+ * @param {Date} weekStart - The Monday of the week
+ * @returns {Array<{dayName: string, dateLabel: string, date: Date}>}
+ */
+export function generateWeekDates(weekStart) {
+  const days = [];
+  for (let i = 0; i < 6; i++) {
+    const d = addDays(weekStart, i);
+    days.push({
+      dayName: format(d, "EEEE"),
+      dateLabel: format(d, "dd-MMM-yyyy"),
+      date: d,
+    });
+  }
+  return days;
+}

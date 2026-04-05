@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAssignments } from '../../context/AssignmentContext';
 import { Plus, Search, Filter } from 'lucide-react';
-import AssignmentTable from '../../components/assignments/AssignmentTable';
+import AssignmentTable from '../../modules/assignments/AssignmentTable';
 
 export default function AssignmentsDashboard() {
   const { assignments } = useAssignments();

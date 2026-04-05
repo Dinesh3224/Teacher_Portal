@@ -22,7 +22,7 @@ export default function ClassBlock({ classData }) {
   }
 
   return (
-    <div className={`border rounded-2xl p-4 flex flex-col flex-1 hover:shadow-md hover:-translate-y-[2px] shadow-sm shadow-gray-200/50 transition-all duration-300 group relative overflow-hidden ${getThemeClasses()}`}>
+    <div className={`border rounded-lg p-3 flex flex-col flex-1 hover:shadow-sm hover:-translate-y-[1px] shadow-sm shadow-gray-200/50 transition-all duration-200 group relative overflow-hidden ${getThemeClasses()}`}>
       <div className={`absolute top-0 left-0 bottom-0 w-1 ${getSidebarColor()}`}></div>   
       <div className="flex justify-between items-start mb-3">
          <div className={`bg-white px-2 py-1 rounded font-bold text-[10px] shadow-sm uppercase tracking-wider ${getBadgeColor()}`}>

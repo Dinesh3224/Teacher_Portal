@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useAssignments } from '../../context/AssignmentContext';
 import { ArrowLeft, Users, Download, Filter } from 'lucide-react';
-import SubmissionTable from '../../components/assignments/SubmissionTable';
+import SubmissionTable from '../../modules/assignments/SubmissionTable';
 
 export default function AssignmentSubmissions() {
   const { id } = useParams();

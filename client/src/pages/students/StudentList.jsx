@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useStudents } from '../../context/StudentContext';
 import { Search, Filter } from 'lucide-react';
-import StudentTable from '../../components/students/StudentTable';
+import StudentTable from '../../modules/students/StudentTable';
 
 export default function StudentList() {
   const { students } = useStudents();

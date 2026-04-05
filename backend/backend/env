@@ -1,0 +1,5 @@
+PORT=3010
+DATABASE=mongodb://127.0.0.1:27017/hrmodule
+JWT_SECRET="ecoders_jwt_secret"
+EMAIL=dineshkumar200325@gmail.com
+EMAIL_PASSWORD=qgcnpezgepdxdssu

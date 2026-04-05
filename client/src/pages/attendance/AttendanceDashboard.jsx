@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAttendance } from '../../context/AttendanceContext';
 import { Users, CheckCircle, Clock, BarChart3, Plus, Eye } from 'lucide-react';
-import AttendanceCard from '../../components/attendance/AttendanceCard';
+import AttendanceCard from '../../modules/attendance/AttendanceCard';
 
 export default function AttendanceDashboard() {
   const { todayClasses, attendanceLogs } = useAttendance();
